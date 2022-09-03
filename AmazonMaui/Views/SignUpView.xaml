@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AmazonMaui.Views.SignUpView"
+             xmlns:fontawesome="clr-namespace:AmazonMaui.Resources.Styles"
+             xmlns:models="clr-namespace:AmazonMaui.Models"
+             xmlns:viewmodels="clr-namespace:AmazonMaui.ViewModels"
+             Title="{Binding Title}"
+             x:DataType="viewmodels:SignUpViewModel"
+             Shell.PresentationMode="ModalNotAnimated">
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <Grid
+            Margin="24"
+            RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+            RowSpacing="10">
+
+            <Label
+                Grid.Row="0"
+                Margin="0,40,0,20"
+                HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span FontSize="Large" Text="Welcome to " />
+                            <Span Text="&#xA;" />
+                            <Span
+                                FontSize="Large"
+                                Text="Amazon"
+                                TextColor="{AppThemeBinding Light={StaticResource Primary_ThemeLight},
+                                                            Dark={StaticResource Primary_ThemeDark}}" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Grid.Row="1" Text="Enter the details below to create your account" />
+
+            <Frame Grid.Row="2">
+                <HorizontalStackLayout>
+                    <Label Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.User}" Margin="10"  />
+                    <Entry Margin="20,4" Placeholder="Full Name" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame Grid.Row="3">
+                <HorizontalStackLayout>
+                    <Label Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.Envelope}"  Margin="10" />
+                    <Entry Margin="20,4"  Keyboard="Email" Placeholder="Email" />
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame Grid.Row="4">
+                <HorizontalStackLayout>
+                    <Label Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.Phone}"  Margin="10" />
+                    <Entry Margin="20,4" Keyboard="Telephone" Placeholder="Phone Number" />
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame Grid.Row="5">
+                <Grid  ColumnDefinitions="Auto,*,Auto">
+                    <Label Grid.Column="0" Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.Lock}" VerticalOptions="Center" Margin="10" />
+                    <Entry Grid.Column="1" IsPassword="True" Placeholder="Password" Margin="20,0,0,10" />
+                    <Label Grid.Column="2" Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.EyeSlash}" VerticalOptions="Center" Margin="10"  />
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="6">
+                <Grid  ColumnDefinitions="Auto,*,Auto">
+                    <Label Grid.Column="0" Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.Lock}"  VerticalOptions="Center" Margin="10" />
+                    <Entry Grid.Column="1" IsPassword="True" Placeholder="Confirm Password" Margin="20,0,0,10" />
+                    <Label Grid.Column="2" Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.EyeSlash}"  VerticalOptions="Center" Margin="10"  />
+                </Grid>
+            </Frame>
+            <Grid
+                Grid.Row="7"
+                ColumnDefinitions="*,*"
+                RowDefinitions="Auto">
+
+                <Button
+                    Grid.Column="0"
+                    Margin="10"
+                    Command="{Binding CancelCommand}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Style="{StaticResource OutlinedButtonStyle}"
+                    Text="Cancel" />
+
+                <Button
+                    Grid.Column="1"
+                    Margin="10"
+                    Command="{Binding CreateAccountCommand}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Text="Continue" />
+            </Grid>
+            <Label Grid.Row="8" HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Already have an account" />
+                            <Span Text="   " />
+                            <Span Text="Sign In" TextColor="{AppThemeBinding Light={StaticResource Primary_ThemeLight}, Dark={StaticResource Primary_ThemeDark}}" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignInCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </ScrollView>
+</ContentPage>

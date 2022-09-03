@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AmazonMaui.Views.OnboardingView"
+             xmlns:models="clr-namespace:AmazonMaui.Models"
+             xmlns:viewmodels="clr-namespace:AmazonMaui.ViewModels"
+             Title="{Binding Title}"
+             x:DataType="viewmodels:OnboardingViewModel"
+             BackgroundColor="{AppThemeBinding Light={StaticResource Background_ThemeLight}, Dark={StaticResource Background_ThemeDark}}"
+             Shell.NavBarIsVisible="False"
+             Shell.PresentationMode="ModalNotAnimated">
+    <ContentPage.BindingContext>
+        <viewmodels:OnboardingViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+            <Grid RowDefinitions="Auto,*,Auto">
+
+                <Label Margin="24"
+                       HorizontalTextAlignment="End"
+                       Text="Skip"
+                       TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SkipCommand}" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <CarouselView Grid.Row="1"
+                              Margin="24,50,24,24"
+                              IndicatorView="indicatorView"
+                              ItemsSource="{Binding Items}"
+                              Loop="False">
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="10"
+                                           Orientation="Horizontal"
+                                           SnapPointsAlignment="Center"
+                                           SnapPointsType="MandatorySingle" />
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate x:DataType="models:OnboardingItem">
+                            <VerticalStackLayout>
+                                <Image HeightRequest="250" Source="{Binding ImageURL}" />
+
+                                <Label Margin="0,50,0,0"
+                                       FontFamily="RobotoBold"
+                                       FontSize="Title"
+                                       MaxLines="2"
+                                       Text="{Binding Title}" />
+                                <Label Margin="0,20,0,0"
+                                       FontFamily="RobotoRegular"
+                                       FontSize="Body"
+                                       MaxLines="3"
+                                       Text="{Binding Content}" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Grid Grid.Row="2"
+                      Margin="20"
+                      ColumnDefinitions="*,*">
+
+                    <IndicatorView x:Name="indicatorView"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   SelectedIndicatorColor="{StaticResource OrangeColor}"
+                                   IndicatorColor ="{StaticResource YellowColor}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                        <IndicatorView.IndicatorTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource IndicatorViewBorderStyle}" HeightRequest="10"  >
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="30" />
+                                    </Border.StrokeShape>
+                                </Border>
+                            </DataTemplate>
+                        </IndicatorView.IndicatorTemplate>
+                    </IndicatorView>
+
+                    <Button Grid.Column="1"
+                            Command="{Binding SkipCommand}"
+                            IsEnabled="{Binding IsNotBusy}"
+                            Text="Next" />
+                </Grid>
+
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

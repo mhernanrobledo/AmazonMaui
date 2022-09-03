@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AmazonMaui.Views.SignInView"
+             xmlns:fontawesome="clr-namespace:AmazonMaui.Resources.Styles"
+             xmlns:models="clr-namespace:AmazonMaui.Models"
+             xmlns:viewmodels="clr-namespace:AmazonMaui.ViewModels"
+             Title="{Binding Title}"
+             x:DataType="viewmodels:SignInViewModel"
+             Shell.PresentationMode="ModalNotAnimated">
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <Grid
+            Margin="24"
+            RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+            RowSpacing="10">
+
+            <Image
+                Margin="0,24,0,0"
+                HeightRequest="100"
+                Source="amazon"
+                WidthRequest="100" />
+
+            <Label
+                Grid.Row="1"
+                Margin="0,40,0,20"
+                HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span FontSize="Large" Text="Welcome to " />
+                            <Span Text="&#xA;" />
+                            <Span
+                                FontSize="Large"
+                                Text="Amazon"
+                                TextColor="{AppThemeBinding Light={StaticResource Primary_ThemeLight},Dark={StaticResource Primary_ThemeDark}}" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Frame Grid.Row="2">
+                <HorizontalStackLayout>
+                    <Label Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.Envelope}" Margin="10"  />
+                    <Entry Margin="20,4" Keyboard="Email" Placeholder="Email" />
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame Grid.Row="3">
+                <HorizontalStackLayout>
+                    <Label Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.Lock}" Margin="10"  />
+                    <Entry Margin="20,4" IsPassword="True" Placeholder="Password" />
+                </HorizontalStackLayout>
+            </Frame>
+            <Label
+                Grid.Row="4"
+                Margin="0,10,0,10"
+                HorizontalTextAlignment="End"
+                Text="Forgot Password?"
+                TextColor="{AppThemeBinding Light={StaticResource Primary_ThemeLight}, Dark={StaticResource Primary_ThemeDark}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Button
+                Grid.Row="5"
+                Command="{Binding SignInCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Text="Sign In" />
+
+            <Label
+                Grid.Row="6"
+                Margin="0,20,0,0"
+                HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Don't have an account" TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                            <Span Text="   " />
+                            <Span Text="Sign Up" TextColor="{AppThemeBinding Light={StaticResource Primary_ThemeLight}, Dark={StaticResource Primary_ThemeDark}}" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignUpCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

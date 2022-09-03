@@ -1,0 +1,16 @@
+﻿global using Microsoft.Extensions.DependencyInjection.Extensions;
+global using System.Collections.ObjectModel;
+global using System.ComponentModel;
+global using System.Diagnostics;
+global using System.Runtime.CompilerServices;
+global using System.Windows.Input;
+global using CommunityToolkit.Maui;
+global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
+global using AmazonMaui.Converters;
+global using AmazonMaui.Extensions;
+global using AmazonMaui.Helpers;
+global using AmazonMaui.Models;
+global using AmazonMaui.Services;
+global using AmazonMaui.ViewModels;
+global using AmazonMaui.Views;

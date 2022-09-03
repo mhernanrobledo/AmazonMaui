@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AmazonMaui.Views.WelcomeView"
+             xmlns:models="clr-namespace:AmazonMaui.Models"
+             xmlns:viewmodels="clr-namespace:AmazonMaui.ViewModels"
+             x:DataType="viewmodels:WelcomeViewModel"
+             Shell.NavBarIsVisible="False"
+             Shell.PresentationMode="ModalNotAnimated">
+    <ContentPage.BindingContext>
+        <viewmodels:WelcomeViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+            <Grid Margin="24"
+                  BackgroundColor="{AppThemeBinding Light={StaticResource Background_ThemeLight}, Dark={StaticResource Background_ThemeDark}}"
+                  RowDefinitions="*,Auto">
+
+                <!--  1. Main image  -->
+                <Image Grid.Row="0" Source="amazon" />
+
+                <!--  Here add the code that is being explained in the next block  -->
+
+                <Grid Grid.Row="1"
+                      Margin="0,0,0,20"
+                      RowDefinitions="Auto,Auto"
+                      RowSpacing="10">
+
+                    <Button 
+                            Command="{Binding SignInCommand}"
+                            BackgroundColor="{StaticResource YellowColor}"
+                            IsEnabled="{Binding IsNotBusy}"
+                            Text="Sign In" />
+
+                    <Button Grid.Row="1"
+                            Command="{Binding SignUpCommand}"
+                            BackgroundColor="{StaticResource OrangeColor}"
+                            IsEnabled="{Binding IsNotBusy}"
+                            Text="Create an account" />
+                </Grid>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
