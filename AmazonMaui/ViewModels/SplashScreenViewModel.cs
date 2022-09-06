@@ -17,7 +17,16 @@
             try
             {
                 await Task.Delay(1000);
-                await Shell.Current.GoToAsync($"{nameof(OnboardingView)}", false);
+
+                if (VersionTracking.IsFirstLaunchEver)
+                {
+                    await Shell.Current.GoToAsync($"{nameof(OnboardingView)}", false);
+                }
+                else
+                {
+                    await Shell.Current.GoToAsync(nameof(WelcomeView), false);
+                }
+                    
                 Shell.Current.FlyoutIsPresented = false;
             }
             catch (Exception ex)

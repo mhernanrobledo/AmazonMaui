@@ -7,27 +7,8 @@
         private string _title;
 
         [ObservableProperty]
-        private bool _isBusy;
-
-        //string _title = string.Empty;
-        //public string Title
-        //{
-        //    get { return _title; }
-        //    set { SetProperty(ref _title, value); }
-        //}
-
-
-        bool _isNotBusy = true;
-        public bool IsNotBusy
-        {
-            get => _isNotBusy;
-            set
-            {
-                if (SetProperty(ref _isNotBusy, value))
-                    IsBusy = !_isNotBusy;
-            }
-        }
-
+        private bool _isBusy = false;
+        
         public virtual Task InitializeAsync(object navigationData)
         {
             //return Task.FromResult(false);

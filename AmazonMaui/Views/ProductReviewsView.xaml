@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AmazonMaui.Views.ProductReviewsView"
+             xmlns:fontawesome="clr-namespace:AmazonMaui.Resources.Styles"
+             xmlns:models="clr-namespace:AmazonMaui.Models"
+             xmlns:viewmodels="clr-namespace:AmazonMaui.ViewModels"
+             x:DataType="viewmodels:ProductReviewsViewModel"
+             Title="Rating and Reviews">
+    <Grid Margin="24"
+              ColumnDefinitions="*"
+              RowDefinitions="Auto,Auto,*"
+              RowSpacing="10">
+        <Grid ColumnDefinitions="0.3*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10" ColumnSpacing="10">
+            <!-- Left columns-->
+            <Grid Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" >
+                <Frame HeightRequest="50" WidthRequest="50" CornerRadius="50" BackgroundColor="{AppThemeBinding Light={StaticResource Primary_ThemeLight},Dark= {StaticResource Primary_ThemeDark} }">
+                    <Label Text="4.5" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+            <Label Grid.Row="3" Grid.Column="0" Text="320 Reviews" FontSize="12" HorizontalOptions="Center" />
+            <Label Grid.Row="4" Grid.Column="0" HorizontalOptions="Center" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="{x:Static fontawesome:FontAwesomeIcons.Star}" TextColor="Gold" FontFamily="FontAwesome" FontSize="10" />
+                            <Span Text="{x:Static fontawesome:FontAwesomeIcons.Star}" TextColor="Gold" FontFamily="FontAwesome" FontSize="10"/>
+                            <Span Text="{x:Static fontawesome:FontAwesomeIcons.Star}" TextColor="Gold" FontFamily="FontAwesome" FontSize="10"/>
+                            <Span Text="{x:Static fontawesome:FontAwesomeIcons.Star}" TextColor="Gold" FontFamily="FontAwesome" FontSize="10"/>
+                            <Span Text="{x:Static fontawesome:FontAwesomeIcons.StarHalf}"  TextColor="Gold" FontFamily="FontAwesome" FontSize="10"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <!-- Right Columns-->
+            <Grid Grid.Row="0" Grid.Column="1" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                <Label Grid.Column="0" Text="5 stars "/>
+                <ProgressBar Grid.Column="1" Progress="0.9"/>
+                <Label Grid.Column="2" Text="200"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                <Label Grid.Column="0" Text="4 stars "/>
+                <ProgressBar Grid.Column="1" Progress="0.7"/>
+                <Label Grid.Column="2" Text="150"/>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="1"  ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                <Label Grid.Column="0" Text="3 stars "/>
+                <ProgressBar Grid.Column="1" Progress="0.5"/>
+                <Label Grid.Column="2" Text="90"/>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="1" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                <Label Grid.Column="0" Text="2 stars "/>
+                <ProgressBar Grid.Column="1" Progress="0.3"/>
+                <Label Grid.Column="2" Text="30"/>
+            </Grid>
+            <Grid Grid.Row="4" Grid.Column="1" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                <Label Grid.Column="0" Text="1 stars "/>
+                <ProgressBar Grid.Column="1" Progress="0.1"/>
+                <Label Grid.Column="2" Text="20"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="320"/>
+                            <Span Text=" "/>
+                            <Span Text="Reviews:"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+        <Grid Grid.Row="2">
+            <CollectionView
+               x:Name="ProductReviewsCollectionView">
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Manuel Hernan</x:String>
+                        <x:String>Jhon Doe</x:String>
+                        <x:String>Ignacio Isidro</x:String>
+                        <x:String>Ainara Tena</x:String>
+                        <x:String>Irina.</x:String>
+                        <x:String>Ana B.</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout
+                    HorizontalItemSpacing="10"
+                    Orientation="Vertical"
+                    Span="1"
+                    VerticalItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="120">
+                            <Frame Padding="5">
+                                <Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                                    <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HeightRequest="40" WidthRequest="40" CornerRadius="40">
+                                        <Image Source="dotnet_bot" VerticalOptions="Start"/>
+                                    </Frame>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding .}"  />
+                                    <Label Grid.Row="0" Grid.Column="2" Text="22-Ago-2022" Margin="10,0,0,10" FontFamily="RobotoLight" FontSize="10" />
+
+                                    <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Start" >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{x:Static fontawesome:FontAwesomeIcons.Star}" TextColor="Gold" FontFamily="FontAwesome" FontSize="10" />
+                                                    <Span Text="{x:Static fontawesome:FontAwesomeIcons.Star}" TextColor="Gold" FontFamily="FontAwesome" FontSize="10"/>
+                                                    <Span Text="{x:Static fontawesome:FontAwesomeIcons.Star}" TextColor="Gold" FontFamily="FontAwesome" FontSize="10"/>
+                                                    <Span Text="{x:Static fontawesome:FontAwesomeIcons.Star}" TextColor="Gold" FontFamily="FontAwesome" FontSize="10"/>
+                                                    <Span Text="{x:Static fontawesome:FontAwesomeIcons.StarHalf}"  TextColor="Gold" FontFamily="FontAwesome" FontSize="10"/>
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" MaxLines="4" Margin="0,5,0,0" Text="{StaticResource LoremIpsum}" FontFamily="RobotoLight" FontSize="12" />
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentPage>

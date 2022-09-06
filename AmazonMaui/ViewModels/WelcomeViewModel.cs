@@ -4,7 +4,7 @@
     {
         public WelcomeViewModel()
         {
-
+            Title = String.Empty;
         }
 
         [RelayCommand]

@@ -12,5 +12,8 @@ global using AmazonMaui.Extensions;
 global using AmazonMaui.Helpers;
 global using AmazonMaui.Models;
 global using AmazonMaui.Services;
+global using AmazonMaui.Services.Data;
+global using AmazonMaui.Services.Data.Repositories;
 global using AmazonMaui.ViewModels;
 global using AmazonMaui.Views;
+global using AmazonMaui.Views.Templates;

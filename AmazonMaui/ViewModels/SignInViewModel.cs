@@ -17,7 +17,8 @@
 
             try
             {
-                await Shell.Current.GoToAsync($"{nameof(HomeView)}", false);
+                await Shell.Current.GoToAsync("//AmazonMaui/HomePage", false);
+                //await Shell.Current.GoToAsync($"{nameof(HomeView)}", false);
                 Shell.Current.FlyoutIsPresented = false;
             }
             catch (Exception ex)

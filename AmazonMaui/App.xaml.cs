@@ -6,6 +6,16 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+        InitializeApp();
+
+        MainPage = new AppShell();
 	}
+
+    private void InitializeApp()
+	{
+        if (VersionTracking.IsFirstLaunchEver)
+        {
+            //_settingsService.UseMocks = true;
+        }
+    }
 }

@@ -29,13 +29,13 @@
                     <Button 
                             Command="{Binding SignInCommand}"
                             BackgroundColor="{StaticResource YellowColor}"
-                            IsEnabled="{Binding IsNotBusy}"
+                            IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
                             Text="Sign In" />
 
                     <Button Grid.Row="1"
                             Command="{Binding SignUpCommand}"
                             BackgroundColor="{StaticResource OrangeColor}"
-                            IsEnabled="{Binding IsNotBusy}"
+                            IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
                             Text="Create an account" />
                 </Grid>
 

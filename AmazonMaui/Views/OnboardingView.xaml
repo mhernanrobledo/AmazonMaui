@@ -80,7 +80,7 @@
 
                     <Button Grid.Column="1"
                             Command="{Binding SkipCommand}"
-                            IsEnabled="{Binding IsNotBusy}"
+                            IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
                             Text="Next" />
                 </Grid>
 

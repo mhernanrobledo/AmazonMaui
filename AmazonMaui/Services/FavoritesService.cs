@@ -1,6 +1,7 @@
 ﻿namespace AmazonMaui.Services
 {
-    internal class FavoritesService
+    public class FavoritesService : IFavoritesService
     {
+
     }
 }

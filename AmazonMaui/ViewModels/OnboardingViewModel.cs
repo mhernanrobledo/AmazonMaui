@@ -7,6 +7,8 @@
 
         public OnboardingViewModel()
         {
+            Title = String.Empty;
+
             Items = new ObservableCollection<OnboardingItem>
             {
                 new OnboardingItem
