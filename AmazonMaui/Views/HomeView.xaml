@@ -160,6 +160,11 @@
             </CollectionView>
 
             <Image Grid.Row="5" Source="alexa1.JPG" />
+            
+            <!--<ActivityIndicator 
+                Grid.Row="4" 
+                Color="{AppThemeBinding Light={StaticResource Primary_ThemeLight},Dark={StaticResource Primary_ThemeDark}}"
+                IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" />-->
 
         </Grid>
     </ScrollView>

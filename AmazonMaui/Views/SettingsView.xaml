@@ -7,10 +7,37 @@
              xmlns:viewmodels="clr-namespace:AmazonMaui.ViewModels"
              x:DataType="viewmodels:SettingsViewModel"
              Title="{Binding Title}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+
+        <Grid
+            Margin="24"
+            RowDefinitions="Auto,Auto"
+            RowSpacing="0">
+            <Grid Grid.Row="0">
+                <Frame Padding="0">
+                    <Grid ColumnDefinitions="0.2*,0.6*,0.2*" RowDefinitions="50">
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Style="{StaticResource SettingsIconStyle}"
+                            Text="{x:Static fontawesome:FontAwesomeIcons.Moon}" />
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource SettingsStyle}"
+                            Text="Dark Mode" />
+
+                        <Switch
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="0,0,10,0"
+                            IsToggled="{Binding IsDarkModeEnabled}"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+           
+        </Grid>
+    </ScrollView>
 </ContentPage>

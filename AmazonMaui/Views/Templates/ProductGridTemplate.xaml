@@ -8,7 +8,7 @@
     <Grid RowDefinitions="250"
           ColumnDefinitions="200">
 
-        <Frame BorderColor="{AppThemeBinding Light={StaticResource PrimaryContainer_ThemeLight}, Dark={StaticResource Primary_ThemeDark}}"
+        <Frame BorderColor="{AppThemeBinding Light={StaticResource PrimaryContainer_ThemeLight}, Dark={StaticResource PrimaryContainer_ThemeDark}}"
                CornerRadius="12"
                HasShadow="False"
                IsClippedToBounds="True">
@@ -19,6 +19,14 @@
                     <Image Source="amazonchoice.jpg" HeightRequest="30"
                            WidthRequest="100"
                            Margin="5,1,0,0"
+                           IsVisible="{Binding IsAmazonChoice}"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Start"/>
+
+                    <Image Source="amazonbestseller.jpg" HeightRequest="30"
+                           WidthRequest="100"
+                           Margin="5,1,0,0"
+                           IsVisible="{Binding IsAmazonBestSeller}"
                            HorizontalOptions="Start"
                            VerticalOptions="Start"/>
 

@@ -13,6 +13,8 @@ public partial class App : Application
 
     private void InitializeApp()
 	{
+        TheTheme.SetTheme();
+
         if (VersionTracking.IsFirstLaunchEver)
         {
             //_settingsService.UseMocks = true;

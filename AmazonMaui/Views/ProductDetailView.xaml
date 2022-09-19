@@ -68,6 +68,14 @@
                             </Label.GestureRecognizers>
                         </Label>
                     </StackLayout>
+
+                    <Label Text="{Binding Product.Price, StringFormat='{0:C}'}" FontAttributes="Bold" />
+
+                    <Label Text="Details" />
+
+                    <Label MaxLines="4" Text="{StaticResource LoremIpsum}" />
+                    <Label Text="More details" HorizontalOptions="End" TextColor="{AppThemeBinding Light={StaticResource Primary_ThemeLight},Dark={StaticResource Primary_ThemeDark}}" TextDecorations="Underline" />
+                    
                 </VerticalStackLayout>
             </ScrollView>
         </Grid>
