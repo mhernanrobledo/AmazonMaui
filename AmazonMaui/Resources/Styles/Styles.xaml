@@ -25,16 +25,21 @@
     </Style>
 
     <Style TargetType="Button">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary_ThemeLight}}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary_ThemeLight}, Dark={StaticResource Primary_ThemeDark}}" />
+        <!--<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary_ThemeLight}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary_ThemeLight}, Dark={StaticResource Primary_ThemeDark}}" />-->
         <Setter Property="FontFamily" Value="RobotoMedium"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="CornerRadius" Value="8"/>
-        <!--<Setter Property="Padding" Value="14,10"/>-->
+        <Setter Property="Padding" Value="14,10"/>
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary_ThemeLight}}" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary_ThemeLight}, Dark={StaticResource Primary_ThemeDark}}" />
+                        </VisualState.Setters>
+                    </VisualState>
                     <VisualState x:Name="Disabled">
                         <VisualState.Setters>
                             <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray200}}" />
@@ -366,6 +371,7 @@
     <Style TargetType="Page" ApplyToDerivedTypes="True">
         <Setter Property="Padding" Value="0"/>
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Background_ThemeLight}, Dark={StaticResource Background_ThemeDark}}" />
+        <Setter Property="Shell.NavBarHasShadow" Value="false" />
     </Style>
 
     <Style TargetType="Shell" ApplyToDerivedTypes="True">

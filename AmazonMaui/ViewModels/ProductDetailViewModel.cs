@@ -28,8 +28,11 @@
 
             try
             {
-                await Shell.Current.GoToAsync($"{nameof(ProductReviewsView)}", false);
-                Shell.Current.FlyoutIsPresented = false;
+                var navigationParameter = new Dictionary<string, object>
+                {
+                    { "SelectedProduct", _product }
+                };
+                await Shell.Current.GoToAsync($"{nameof(ProductReviewsView)}", navigationParameter);
             }
             catch (Exception ex)
             {

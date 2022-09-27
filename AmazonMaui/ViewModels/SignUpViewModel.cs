@@ -54,7 +54,7 @@
         }
 
         [RelayCommand]
-        private async Task Cancel()
+        async Task Cancel()
         {
             if (IsBusy)
                 return;

@@ -26,8 +26,8 @@
             _categoryRepository = categoryRepository;
             _productRepository = productRepository;
 
-            CategoryProducts = new ObservableCollection<Category>();
-            Products = new ObservableCollection<Product>();
+            _categoryProducts = new ObservableCollection<Category>();
+            _products = new ObservableCollection<Product>();
 
             ProductDetailCommand = new Command(NavigateToProductDetail);
         }
@@ -66,8 +66,6 @@
 
         private async void NavigateToProductDetail(object sender)
         {
-           // Debug.WriteLine(sender);
-
             if (sender == null)
                 return;
 
@@ -96,8 +94,6 @@
                 IsBusy = false;
             }
 
-            
         }
-
     }
 }

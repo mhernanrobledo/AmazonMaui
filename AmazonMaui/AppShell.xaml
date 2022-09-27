@@ -15,7 +15,8 @@
                 FlyoutDisplayOptions="AsSingleItem"
                 Route="AmazonMaui">
                 <FlyoutItem.Icon>
-                    <FontImageSource FontFamily="FontAwesome" Glyph="{x:Static fontawesome:FontAwesomeIcons.House}" />
+                    <FontImageSource FontFamily="FontAwesome" Glyph="{x:Static fontawesome:FontAwesomeIcons.House}"
+                                     Color="{AppThemeBinding Light={StaticResource Primary_ThemeLight}, Dark={StaticResource Primary_ThemeDark}}" />
                 </FlyoutItem.Icon>
 
         <Tab Title="Home" Route="HomePage">
@@ -50,9 +51,10 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="Settings" Route="SettingsPage">
+    <FlyoutItem Title="Settings" Route="SettingsPage" >
         <FlyoutItem.Icon>
-            <FontImageSource FontFamily="FontAwesome" Glyph="{x:Static fontawesome:FontAwesomeIcons.Gear}" />
+            <FontImageSource FontFamily="FontAwesome" Glyph="{x:Static fontawesome:FontAwesomeIcons.Gear}" 
+                             Color="{AppThemeBinding Light={StaticResource Primary_ThemeLight}, Dark={StaticResource Primary_ThemeDark}}"/>
         </FlyoutItem.Icon>
         <ShellContent ContentTemplate="{DataTemplate views:SettingsView}" />
     </FlyoutItem>

@@ -43,7 +43,6 @@
             try
             {
                 await Shell.Current.GoToAsync(nameof(WelcomeView), false);
-                //await Shell.Current.GoToAsync($"//main");
             }
             catch (Exception ex)
             {

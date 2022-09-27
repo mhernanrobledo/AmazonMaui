@@ -10,12 +10,12 @@
             builder.Services.AddTransient<SignInViewModel>();
             builder.Services.AddTransient<SignUpViewModel>();
             builder.Services.AddSingleton<HomeViewModel>();
-            builder.Services.AddSingleton<ProductDetailViewModel>();
-            builder.Services.AddSingleton<ProductReviewsViewModel>();
+            builder.Services.AddTransient<ProductDetailViewModel>();
+            builder.Services.AddTransient<ProductReviewsViewModel>();
             builder.Services.AddSingleton<FavoritesViewModel>();
             builder.Services.AddSingleton<SearchViewModel>();
             builder.Services.AddSingleton<ShoppingCartViewModel>();
-            builder.Services.AddSingleton<SettingsViewModel>();
+            builder.Services.AddTransient<SettingsViewModel>();
             
 
             return builder;

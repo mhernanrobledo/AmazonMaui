@@ -8,11 +8,16 @@ public partial class App : Application
 
         InitializeApp();
 
-        MainPage = new AppShell();
+        if (DeviceInfo.Idiom == DeviceIdiom.Phone)
+        {
+            MainPage = new AppShell();
+        }
 	}
 
     private void InitializeApp()
 	{
+        //App.Current.UserAppTheme = AppTheme.Dark;
+
         TheTheme.SetTheme();
 
         if (VersionTracking.IsFirstLaunchEver)
