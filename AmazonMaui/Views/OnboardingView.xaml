@@ -14,7 +14,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
-            <Grid RowDefinitions="Auto,*,Auto">
+            <Grid RowDefinitions="Auto,*,50">
 
                 <Label Margin="24"
                        HorizontalTextAlignment="End"
@@ -29,6 +29,7 @@
                               Margin="24,50,24,24"
                               IndicatorView="indicatorView"
                               ItemsSource="{Binding Items}"
+                              Position="{Binding Position}"
                               Loop="False">
                     <CarouselView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="10"
@@ -46,18 +47,19 @@
                                        FontSize="Title"
                                        MaxLines="2"
                                        Text="{Binding Title}" />
+                                
                                 <Label Margin="0,20,0,0"
                                        FontFamily="RobotoRegular"
                                        FontSize="Body"
                                        MaxLines="3"
                                        Text="{Binding Content}" />
+                                
                             </VerticalStackLayout>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
 
                 <Grid Grid.Row="2"
-                      Margin="20"
                       ColumnDefinitions="*,*">
 
                     <IndicatorView x:Name="indicatorView"
@@ -79,9 +81,11 @@
                     </IndicatorView>
 
                     <Button Grid.Column="1"
-                            Command="{Binding SkipCommand}"
+                            Padding="14,10"
+                            Margin="0,0,10,10"
+                            Command="{Binding NextCommand}"
                             IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
-                            Text="Next" />
+                            Text="{Binding ButtonText}" />
                 </Grid>
 
 

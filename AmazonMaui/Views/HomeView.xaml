@@ -9,7 +9,7 @@
              Title="{Binding Title}"
              x:DataType="viewmodels:HomeViewModel">
     <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
-        <Grid Margin="24"
+        <Grid Margin="16"
               ColumnDefinitions="*"
               RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
               RowSpacing="10">

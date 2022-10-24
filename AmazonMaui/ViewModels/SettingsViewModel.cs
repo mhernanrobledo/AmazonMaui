@@ -12,7 +12,7 @@
             {
                 if (SetProperty(ref _isDarkModeEnabled, value))
                 {
-                    ChangeUserAppTheme(value);
+                    SettingsViewModel.ChangeUserAppTheme(value);
                 }
             }
         }
@@ -23,7 +23,7 @@
             _isDarkModeEnabled = Settings.Theme == AppTheme.Dark;
         }
 
-        private void ChangeUserAppTheme(bool activateDarkMode)
+        private static void ChangeUserAppTheme(bool activateDarkMode)
         {
             Settings.Theme = activateDarkMode
                 ? AppTheme.Dark

@@ -5,17 +5,11 @@ namespace AmazonMaui.Helpers
     {
         public static void SetTheme()
         {
-            switch (Settings.Theme)
+            App.Current.UserAppTheme = Settings.Theme switch
             {
-                default:
-                case AppTheme.Light:
-                    App.Current.UserAppTheme = AppTheme.Light;
-                    break;
-                case AppTheme.Dark:
-                    App.Current.UserAppTheme = AppTheme.Dark;
-                    break;
-
-            }
+                AppTheme.Dark => AppTheme.Dark,
+                _ => AppTheme.Light,
+            };
             //MessagingCenter.Instance.Send<string>("AmazonMaui", "ChangeTheme");
         }
     }

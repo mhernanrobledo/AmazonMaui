@@ -57,14 +57,14 @@
             <Frame Grid.Row="5">
                 <Grid  ColumnDefinitions="Auto,*,Auto">
                     <Label Grid.Column="0" Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.Lock}" VerticalOptions="Center" Margin="10" />
-                    <Entry Grid.Column="1" IsPassword="True" Placeholder="Password" Margin="20,0,0,10" />
+                    <Entry Grid.Column="1" Margin="20,4" IsPassword="True" Placeholder="Password"  />
                     <Label Grid.Column="2" Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.EyeSlash}" VerticalOptions="Center" Margin="10"  />
                 </Grid>
             </Frame>
             <Frame Grid.Row="6">
                 <Grid  ColumnDefinitions="Auto,*,Auto">
                     <Label Grid.Column="0" Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.Lock}"  VerticalOptions="Center" Margin="10" />
-                    <Entry Grid.Column="1" IsPassword="True" Placeholder="Confirm Password" Margin="20,0,0,10" />
+                    <Entry Grid.Column="1" Margin="20,4" IsPassword="True" Placeholder="Confirm Password"  />
                     <Label Grid.Column="2" Style="{StaticResource SettingsIconStyle}" Text="{x:Static fontawesome:FontAwesomeIcons.EyeSlash}"  VerticalOptions="Center" Margin="10"  />
                 </Grid>
             </Frame>

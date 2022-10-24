@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AmazonMaui.Views.SplashScreenView"
              xmlns:viewmodels="clr-namespace:AmazonMaui.ViewModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:DataType="viewmodels:SplashScreenViewModel"
              Title="{Binding Title}"
              Shell.NavBarIsVisible="False"
              Shell.PresentationMode="ModalNotAnimated">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{AppThemeBinding Light={StaticResource Primary_ThemeLight},Dark={StaticResource Primary_ThemeDark}}" StatusBarStyle="Default"/>
+    </ContentPage.Behaviors>
     <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
         <Image
             HeightRequest="50"

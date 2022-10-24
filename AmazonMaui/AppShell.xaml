@@ -7,6 +7,18 @@
        xmlns:views="clr-namespace:AmazonMaui.Views"
        Shell.FlyoutBehavior="Flyout">
 
+    <Shell.FlyoutHeader>
+        <Image Source="amazon.jpg"/>
+    </Shell.FlyoutHeader>
+    
+    <Shell.FlyoutFooter>
+        <VerticalStackLayout>
+            <Label Text="By Manuel Hernan"
+                   HorizontalTextAlignment="Center"
+                   FontSize="16"/>
+        </VerticalStackLayout>
+    </Shell.FlyoutFooter>
+
     <ShellItem FlyoutItemIsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate views:SplashScreenView}" Route="SplashScreenPage" />
     </ShellItem>
@@ -58,10 +70,5 @@
         </FlyoutItem.Icon>
         <ShellContent ContentTemplate="{DataTemplate views:SettingsView}" />
     </FlyoutItem>
-
-    <!--<ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:HomeView}"
-        Route="MainPage" />-->
 
 </Shell>

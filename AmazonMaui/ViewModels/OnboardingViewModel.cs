@@ -5,9 +5,37 @@
         [ObservableProperty]
         private ObservableCollection<OnboardingItem> _items;
 
+        [ObservableProperty]
+        private string _buttonText;
+
+     
+        private int _position;
+        public int Position
+        {
+            get { return _position; }
+            set 
+            {
+                _position = value;
+
+                if (value == Items?.Count - 1)
+                {
+                    ButtonText = "Start";
+                }
+                else
+                {
+                    ButtonText = "Next";
+                }
+
+                OnPropertyChanged(nameof(Position));
+                OnPropertyChanged(nameof(ButtonText));
+            }
+        }
+
         public OnboardingViewModel()
         {
             Title = String.Empty;
+            Position = 0;
+            ButtonText = "Next";
 
             Items = new ObservableCollection<OnboardingItem>
             {
@@ -30,6 +58,36 @@
                     ImageURL= "onboarding3.JPG"
                 }
             };
+        }
+
+        [RelayCommand]
+        async Task Next()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                if(Position >= Items?.Count -1)
+                {
+                    await Shell.Current.GoToAsync(nameof(WelcomeView), false);
+                }
+                else
+                {
+                    Position += 1;
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]
